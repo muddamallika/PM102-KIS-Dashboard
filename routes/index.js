@@ -12,6 +12,11 @@ router.get('/healthcheck', function(req, res) {
   res.send(responseObject);
 });
 
+router.get('/login', function(req, res) {
+  var responseObject = { message: 'OK' };
+  res.send(responseObject);
+});
+
 var database = [];
 
 router.post('/ilike/:icecreamchoice/:name', function(req, res){

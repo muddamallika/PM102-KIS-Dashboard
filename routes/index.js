@@ -33,10 +33,25 @@ router.post('/ilike/:icecreamchoice/:name', function(req, res){
 });
 
 router.get('/likes', function(req, res){
+  var logvalue = req.headers['log'];
+  if(logvalue && logvalue == 'info'){
+    console.log("Request recieved for /likes");
+  }
+
+  var select = req.query.select;
+
   if(database.length == 0) {
-    res.status(404).send();
+    var responseObject = undefined;
+    if(select && select == 'count'){
+      responseObject = {count: 0};
+    }
+    res.status(404).send(responseObject);
   } else {
-    res.send(database);
+    var responseObject = database;
+    if(select && select == 'count'){
+      responseObject = {count: database.length};
+    }
+    res.send(responseObject);
   }
 
 });

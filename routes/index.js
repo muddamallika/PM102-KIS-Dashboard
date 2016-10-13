@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 
 /*Health check api*/
 router.get('/healthcheck', function(req, res) {
-  var responseString = 'OK';
+  var responseString = { message: 'OK' };
   res.send(responseString);
 });
 

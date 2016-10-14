@@ -1,7 +1,19 @@
 doctype html
-html
+html(lang='en')
   head
-    title= title
+    title KIS-Dashboard
     link(rel='stylesheet', href='/stylesheets/style.css')
+
   body
-    block content
+     
+      h1.page-title KIS - Dashboard
+      ul.nav
+        li: a(href='/') Home
+        li: a(href='#about') About
+        li: a(href='#contact') Contact
+      
+      .main-content
+        block content
+      
+    footer 
+      p copyright FH Kiel
